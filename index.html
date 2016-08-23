@@ -77,35 +77,230 @@
     <p>Responsive Webdesign ist erst die spitze des Eisbergs.</p>
     <p>Brad Frost hat seine Erfahrungen im Juni 2014 in dem Beitrag <a href="http://http://bradfrost.com/blog/post/the-principles-of-adaptive-design/"> The Principles of adaptive Design</a> passen beschrieben.</p>
     <img src="img/iceberg-1024x768.png" alt="">
-    <h2>Kapitel 5</h2>
-    <h3>Eine kurze Geschichte von HTML5</h3>
-    <p>Die Geschichte von HTML5 lässt sich in fünf Phasen unterteilen:</p>
+    <h2>Kapitel 3</h2>
+    <h3>Das HTML5 Universum im Überblick</h3>
+    <img src="img/graph_en_w.png" alt="">
+    <h3>Gute Quellen rund um HTML5</h3>
+    <h4>Standards</h4>
+    <p>HTML - The living standard <a href="http://whatwg.org/html"></a></p>
+    <p>HTML5 auf <a href="http://w3.org/TR/html5">w3.org</a></p>
+    <h4>Anlaufstelle für allgemeine Informationen</h4>
+    <p>HTML5 Doctoren <a href="http://html5doctor.com">HTML 5 Doctoren</a></p>
+    <h4>Anlaufstelle für fragen zur Browserunterstützung. </h4>
+    <p>Browserunterstützung <a href="http://caniuse.com"></a></p>
+    <h4>Seiten auf deutsch</h4>
+    <p>Peter Kröners <a href="http://peterkroener.de"></a></p>
+    <h2>Kapitel 4</h2>
+    <p>HTML 5 Template <a href="https://html5bones.com/">HTML 5 Bones</a></p>
+    <p>Die design Philospie des Template: <em>HTML5 Bones is a template that goes back to basics and provides you with the bare minimum required to get going with HTML5.</em></p>
+    <h3>Das Meta-Element für den Viewport.</h3>
+    <p>Das Metatag dient zur Kontrolle der Dartstellung der Webseite auf mobilen Geräten. Die Anweisung wurde von Apple erfunden und hat sich zum Quasistandard entwickelt.</p>
+    <p>Erklärung: Standardgemäß zoomen die Mobilen-Browser die Webseiten soweit runter das diese Komplett auf den Bildschirm passen. Der Vorteil für den Benutzer ist, dass er die Webseite klein, aber vollständig sieht und sie im Browser nach Belieben vergrößern und hin und her schieben kann.</p>
+    <p>Wenn Webseiten aber z.B mit Media Queries für kleine Viewports optimiert wurden, ist die automatische verkleinerte Darstellung unerwünscht.</p>
+    <p><mark>Wenn die Darstellung für mobile Endgeräte optimiert wurde sollte das Meta-Viewport Tag eingebunden werden.</mark></p>
+    <h3>Semantische Strukturelemente in HTML5</h3>
+    <p>In HTML5 gibt es neue Elemente, mit denen man die Struktur einer Seite auszeichnen kann. Gemeint sind damit Dinge wie Kopfbereich, Navigation, Inhaltsbereich, Sidebar und Fußbereich.</p>
+    <table>
+        <caption>Übersicht Semantische Elemente HTML 5</caption>
+        <th>
+        <td>HTML-Element</td>
+        <td>Kurzbeschreibung</td>
+    </th>
+    <tr>
+        <td><code>header</code></td>
+        <td>Kopfbereiche</td>
+    </tr>
+    <tr>
+        <td><code>nav</code></td>
+        <td>Navigationsblöcke</td>
+    </tr>
+    <tr>
+        <td><code>main</code></td>
+        <td>Hauptinhalt einer Seite</td>
+    </tr>
+    <tr>
+        <td><code>section</code></td>
+        <td>Einteilung in inhaltliche Abschnitte</td>
+    </tr>
+    <tr>
+        <td><code>article</code></td>
+        <td>in sich geschlossene inhaltliche Blöcke</td>
+    </tr>
+    <tr>
+        <td><code>aside</code></td>
+        <td>zusätzliche Informationen</td>
+    </tr>
+    <tr>
+        <td><code>footer</code></td>
+        <td>Fußbereiche</td>
+    </tr>
+    </table>
+    <p>Semantisches HTML gibt den Inhalten eine Bedeutung.</p>
+    <p>Denn noch lassen sich verschiedene Elemente durch CSS gleich aufstylen das es für den Betrachter keinen Unterschied macht. Beispielsweise können &lt;h1&gt; und ein &lt;div&gt; gleich ausehen</p>
+    <p>Für den normalen Anwender der Seite ist die Semantik zumeist uninteressant. Jedoch hilf die Semantik bei bei drei großen Gruppen:</p>
     <ol>
         <li>
-            <p>HTML -zwischen W3C und Browserherstelleren</p>
-            <p>Das web war von Anfang an in einem Spannungsfeld diverser Interressensgruppen</p>
-            <ol>
-                <li>
-                    <p>Auf der einen Seite Organisationen wie die Internet Engineering Task Force und das World Wide Web Consortium, repräsentieren hierbei die Akademische Welt</p>
-                </li>
-                <li>
-                    <p>Auf der anderen diverse Konzerne wie Google, Microsoft und andere, die eher kommerziale interessen verfolgen.</p>
-                </li>
-                <p>Prinizip sind sich alle darüber einig das es einheitliche standards geben muss. Jedoch nicht über die Art und Weise.</p>
-            </ol>
+            <p>Suchmaschinen</p>
         </li>
         <li>
-            <p>Im Dezember 1997 wurde HTML 4.0 verabschiedet, ein Jahr später folgte die Version 4.0.1</p>
+            <p>Screenreadern</p>
         </li>
         <li>
-            <p></p>
-        </li>
-        <li>
-            <p></p>
-        </li>
-        <li>
-            <p></p>
+            <p>Entwicklern</p>
         </li>
     </ol>
+    <p>Layoutbereiche wurden vor HTML5 traditionell mit &lt;div&gt; erstellt, auch heutzutage ist das nicht falsch jedoch ergibt sich daraus ein Problem. Denn die &lt;div&gt elemente sind semantisch neutral und haben keinerlei Bedeutung.</p>
+    <p>Durch die semantischen Elemente ergeben sich neue Möglichkeiten.</p>
+    <ul>
+        <li>
+            <p>Eine Suchmaschine könnte mit den neuen Elementen z.B Suchbegriffe im Hauptinhaltsbereich <em>main</em> höher bewerten als in den anderen Bereichen wie <em>nav</em> und <em>footer</em></p>
+        </li>
+        <li>
+            <p>Ein Screenreader könnte eine Funktion zum lesen des Hauptinhalts anbieten, mit dem der Benutzer direkt zum Inhaltsbereich oder zur Navigation springen könnte</p>
+        </li>
+        <li>
+            <p>Ein Browser könnte eine Funktion zum Lesen des Hauptinhalts anbieten. Auf Knopfdruck würden dann alle anderen Breiche ausgeblendet werden.</p>
+        </li>
+    </ul>
+    <h3>ARIA Landmark Roles in HTML5</h3>
+    <p>ARIA ist die Abkürzung für <em>Accessible Rich Internet Applications</em> und Teil einer Technischen Spezifikation der <em>Web Accessibility Initiative</em>(WAI), die sich um die Zugänglichkeit des Webs sorgen.</p>
+    <p><mark>Dazu werden die HTML-Elementen um das <em>Attribute role=</em> erweitert, das einen fest definierten Wert erhält.</mark></p>
+    <table>
+        <caption></caption>
+        <th>
+            <td>
+                <p><strong>ARIA-Rolle</strong></p>
+            </td>
+            <td>
+                <p><strong>Beschreibung</strong></p>
+            </td>
+        </th>
+        <tr>
+            <td>
+                <p><strong>banner</strong></p>
+            </td>
+            <td>
+                <p>Diese Rolle kennzeichnet einen Bereich der Webseite, der site-relevante Informationen wie den Site-title, ein Logo und einen Untertitel oder einen Slogan enthält. In der Regel ist das ein Kopfbereich, der relative weit oben auf der Seite steht.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>navigation</strong></p>
+            </td>
+            <td>
+                <p>Kennzeichnet Haupt- und Unterverzeichnis zur Navigation, könnte aber auch für andere Elemente wie Inhaltsverzeichnisse, Sitemap oder ein Suchformular eingesetzt werden.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>main</strong></p>
+            </td>
+            <td>
+                <p>Kennzeichnet den Hauptinhalt einer Seite</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>article</strong></p>
+            </td>
+            <td>
+                <p>ein Inhaltlicher Abschnitt auf einer Seite, der in sich geschlossen ist und unabhängig von der Seite funktioniert.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>complementary</strong></p>
+            </td>
+            <td>
+                <p>Ein solcher Bereich enthält ergänzende Informationen zum Hauptinhalt, die aber auch unabhängig von der Seite funktioniert.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>note</strong></p>
+            </td>
+            <td>
+                <p>für beiläufig eingeschobene Inhalte, die ohne den Hauptinhalt nicht unbedingt verständlich sein müssen</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>contentinfo</strong></p>
+            </td>
+            <td>
+                <p>Informationen über den Inhalt der Webseite wie z.B Autor, Copyright, Fußnoten und dergleichen mehr.</p>
+            </td>
+        </tr>
+    </table>
+    <p>Auch Bootstrap und Foundation verwenden von Haus aus WAI-ARIA Attributs.</p>
+    <table>
+        <caption>ARIA Werte die semantischen HTML5 bei neueren Browsern automatisch zugewiesen wird.</caption>
+        <th>
+            <td>HTML5 Elemente</td>
+            <td>mögliche ARIA Landmark Role</td>
+        </th>
+        <tr>
+            <td>
+                <p><code>header</code></p>
+            </td>
+            <td>
+                <p><code>banner</code>(Nur wenn direkt am body anfang declariert)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><code>nav</code></p>
+            </td>
+            <td>
+                <p><code>navigation</code></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><code>main</code></p>
+            </td>
+            <td>
+                <p><code>main</code></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><code>section</code></p>
+            </td>
+            <td>
+                <p><code>region</code></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><code>article</code></p>
+            </td>
+            <td>
+                <p><code>article,document</code></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><code>aside</code></p>
+            </td>
+            <td>
+                <p><code>note,complementary</code></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><code>footer</code></p>
+            </td>
+            <td>
+                <p><code>contentinfo</code></p>
+            </td>
+        </tr>
+    </table>
+    <p>Links zu WAI-ARIA Attributs</p>
+    <p>Steve Faulkner <a href="http://blog.paciellogroup.com/2013/02/using-wai-aria-landmarks-2013"></a></p>
+    <p>W3C Standard Einführung <a href="http://w3.org/WAI/intro/aria"></a></p>
+    <p>W3C Standard roles<a href="http://w3.org/TR/wai-aria/roles#landmark_roles"></a></p>
+    <p>Etwas lebhafteres: <a href="http://bit.ly/eSc4VQ"></a></p>
+
 </body>
 </html>
