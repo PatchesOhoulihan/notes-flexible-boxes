@@ -77,7 +77,7 @@
     <p>Responsive Webdesign ist erst die spitze des Eisbergs.</p>
     <p>Brad Frost hat seine Erfahrungen im Juni 2014 in dem Beitrag <a href="http://http://bradfrost.com/blog/post/the-principles-of-adaptive-design/"> The Principles of adaptive Design</a> passen beschrieben.</p>
     <img src="img/iceberg-1024x768.png" alt="">
-    <h2>Kapitel 3</h2>
+    <h2>Kapitel 3 HTML</h2>
     <h3>Das HTML5 Universum im Überblick</h3>
     <img src="img/graph_en_w.png" alt="">
     <h3>Gute Quellen rund um HTML5</h3>
@@ -108,36 +108,46 @@
     </th>
     <tr>
         <td><code>header</code></td>
-        <td>Kopfbereiche</td>
+        <td>Kopfbereiche, zumeist direkt hinter dem <em>body-tag</em> zumeist für logos, slogan und/oder Navigation(auch das semantische Nav). Kann mehrfach auf der Seite vorkommen.</td>
     </tr>
     <tr>
         <td><code>nav</code></td>
-        <td>Navigationsblöcke</td>
+        <td>Navigationsblöcke, diese tag ist für die wichtigsten Navigationsblöcke der Seite reserviert und nicht für eine einfache link sammelung verwendet werden.</td>
     </tr>
     <tr>
         <td><code>main</code></td>
-        <td>Hauptinhalt einer Seite</td>
+        <td>Hauptinhalt einer Seite, markiert den Hauptinhalt einer Seite, <mark>darf auf jeder Seite nur ein einziges mal vorkommen, und darf nicht in einem anderen Semantischen Tag stehen(nav, footer, aside)</mark></td>
     </tr>
     <tr>
         <td><code>section</code></td>
-        <td>Einteilung in inhaltliche Abschnitte</td>
+        <td>Einteilung in inhaltliche Abschnitte, geht es nur um die Gruppierung von Elementen nur um die Gestalutng, ist ein <em>div</em> eine bessere Wahl. Bespielweise lässt sich das main mit mehreren <em>sections</em> unterteilen, wie getting started und darauf further reading. Können ineinander verschachtelt werden</td>
     </tr>
     <tr>
         <td><code>article</code></td>
-        <td>in sich geschlossene inhaltliche Blöcke</td>
+        <td>in sich geschlossene inhaltliche Blöcke, ein Artikel sollte für sich alleine stehen können. Können ineinander verschachtelt werden</td>
     </tr>
     <tr>
         <td><code>aside</code></td>
-        <td>zusätzliche Informationen</td>
+        <td>zusätzliche Informationen, die den umgebenden Text erläutern oder nur marginal mit ihm in Verbindung stehen. Nimmt man diesen Text aus dem Dokument heraus, sollte der Haupt Inhalt immer noch verständlich sein. Z.B Werbung.</td>
     </tr>
     <tr>
         <td><code>footer</code></td>
-        <td>Fußbereiche</td>
+        <td>Fußbereich, befinden sich zumeist ergänzende Informationen. Ist nicht nur für die ganze Seite erlaubt, sondern kann auch in Sections und Artikeln verwendet werden. Der Footer bezieht sich immer auf das Element in dem er sich befindet.</td>
     </tr>
     </table>
+    <h3>Article vs Section</h3>
+    <p>Für die richtige verwendung sollte sich folgendes Beispiel vor augen gehalten werden.</p>
+    <ul>
+        <li>
+            <p>Eine Zeitung besteht aus Abschnitten für Nachrichten, Sport und Börse etc. Jeder dieser Abschnitte ist eine <em>section</em></p>
+        </li>
+        <li>
+            <p>Innerhalb eines Abschnitt gibt es Artikel. Ein Artikel ist eine in sich geschlossene Komposition.</p>
+        </li>
+    </ul>
     <p>Semantisches HTML gibt den Inhalten eine Bedeutung.</p>
     <p>Denn noch lassen sich verschiedene Elemente durch CSS gleich aufstylen das es für den Betrachter keinen Unterschied macht. Beispielsweise können &lt;h1&gt; und ein &lt;div&gt; gleich ausehen</p>
-    <p>Für den normalen Anwender der Seite ist die Semantik zumeist uninteressant. Jedoch hilf die Semantik bei bei drei großen Gruppen:</p>
+    <p>Für den normalen Anwender der Seite ist die Semantik zumeist uninteressant. Jedoch hilft die Semantik bei bei drei großen Gruppen:</p>
     <ol>
         <li>
             <p>Suchmaschinen</p>
@@ -297,10 +307,33 @@
         </tr>
     </table>
     <p>Links zu WAI-ARIA Attributs</p>
-    <p>Steve Faulkner <a href="http://blog.paciellogroup.com/2013/02/using-wai-aria-landmarks-2013"></a></p>
+    <p>Steve Faulkner, einer der Editoren der W3C-HTML-5 spezifikation schreibt in <a href="http://blog.paciellogroup.com/2013/02/using-wai-aria-landmarks-2013"></a></p>
     <p>W3C Standard Einführung <a href="http://w3.org/WAI/intro/aria"></a></p>
     <p>W3C Standard roles<a href="http://w3.org/TR/wai-aria/roles#landmark_roles"></a></p>
     <p>Etwas lebhafteres: <a href="http://bit.ly/eSc4VQ"></a></p>
-
+    <h2>Semantische Strukturen im Alltag.</h2>
+    <p>Bei einer bestehenden Website gibt es keinen Grund, irgendwas am Quelltext zu ändern. Die Site wird auch mit altem HTML nach wie vor einwandfrei funktionieren.</p>
+    <h3>Semantische Elemente per CSS stylen</h3>
+    <p>In den allermeisten Browsern ist das styling der neuen Elemente unproblematisch. <mark>Vorsichtshalber sollte man den semantischen Elementen jedoch die Regel <em>display:block;</em> geben.</mark>, da Browser unbekannte Elemente erst einmal als Inline-Elemente ansehen.</p>
+    <p>Auf der anderen Seite kann das auch mit der <em>normalize.css</em> erreicht werden.</p>
+    <p>Ansonsten ist es auch möglich diese mit einem <a href="https://en.wikipedia.org/wiki/HTML5_Shiv">HTML5shiv</a> zu stylen. Manchmal wird der HTML5Shiv übrigens auch als HTML5Shim bezeichnet.</p>
+    <h2>HTML5 validieren</h2>
+    <p>Mit html5 Test lässt sich feststellen wie gut der Browser mit der man die Seite betreiten hat HTML5 drauf hat. <a href="http://html5test.com/">html5test</a></p>
+    <h2>Abbildungen beschriften</h2>
+    <p>Hierfür werden die Attribute <em>figure</em> und <em>figcaption</em> verwendet</p>
+    <p><pre>
+        &lt;figure&gt;
+            &lt;img src="irgendwas" alt="Bild von irgendwas"&gt;
+            &lt;figcaption&gt Hier steht ein schöönes Haus &lt;/figcaption &gt;
+        &lt;/figure&gt;
+    </pre></p>
+    <p>Mehrere Bilder mit Beschriftungen.Mehrere Bilder sind erlaubt jedoch jeweils nur eine Beschreibung</p>
+    <p><pre>
+        &lt;figure&gt;
+            &lt;img src="irgendwas" alt="Bild von irgendwas"&gt;
+            &lt;img src="irgendwas2" alt="Bild von irgendwas2"&gt;
+            &lt;figcaption&gt Hier steht ein schöönes Haus &lt;/figcaption &gt;
+        &lt;/figure&gt;
+    </pre></p>
 </body>
 </html>
