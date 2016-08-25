@@ -335,5 +335,35 @@
             &lt;figcaption&gt Hier steht ein schöönes Haus &lt;/figcaption &gt;
         &lt;/figure&gt;
     </pre></p>
+    <h2>Nützliche Änderungen in älteren HTML-Elementen</h2>
+    <h3>Das a</h3>
+    <p>Früher war das a Element ein Inline Element und durfte nur andere Inline Elemente beinhalten. <mark>In HTML5 ist das a Element ein Transparentes Element das jenach Kontext sowohl ein Block als auch ein Inline Element sein und kann auch Blockelemente enthalten.</mark></p>
+    <p>Im Browser ist dann eine gesamte Box anklickbar, dies ist besonders auf kleineren Touchscreen sehr praktisch</p>
+    <h4>target ist wieder erlaubt.</h4>
+    <pre>
+        &lt;a href="#" target="_blank"&gt;Link in einem neuem Fenster&lt/a&gt;
+    </pre>
+    <h3>Nummerierungen müssen NICHT mehr mit 1 beginnen.</h3>
+    <p>ol hat in HTML5 2 neue Attribute</p>
+    <ol>
+        <li>
+            <p><code>start="number"</code> gibt an mit welcher Nummerierung die Liste starten soll.</p>
+        </li>
+        <li>
+            <p><code>type="1 | a (Buchstaben) | A (Buchstaben) | i (römisch) | I (römisch)"</code> </p>
+        </li>
+    </ol>
+    <p>Diese beiden Attribute lassen sich auch kombinieren. so startet <code>..ol start="5" type = "a"</code> die Liste mit einem <strong>e</strong></p>
+    <h3>Das <code>address</code> Element</h3>
+    <p>Das element besitzt jetzt eine neue semantische Bedeutung. Darf mehrfach vorhanden sein und bezieht sich immer auf den nächst höheren Artikel. Befindet es sich nicht in einem Artikel zählt die <code>address</code> für die ganze Seite.</p>
+    <pre>
+        &lt;address&gt;
+            Written by &lt;a href="mailto:webmaster@example.com"&gt;Jon Doe&lt;/a&gt; 
+            Visit us at:
+            Example.com
+            Box 564, Disneyland
+            USA
+        &lt;/address&gt;
+    </pre>
 </body>
 </html>
