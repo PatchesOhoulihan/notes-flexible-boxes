@@ -417,10 +417,196 @@
                     <p><code>mark</code></p>
                 </td>
                 <td>
-                    <p></p>
+                    <p>Das Element <em>mark</em> funktioniert genau wie ein Textmarker. Oft werden momentan noch konstrukte wie <em>span</em> oder <em>strong</em> verwendet.</p>
                 </td>
             </tr>
         </tbody>
     </table>
+    <h2><em>Time</em> für Menschen und Maschinen</h2>
+    <p>Das time-Element versucht, der Komplexität von Datumsangaben gerecht zu werden, indem es das Datum in zwei Teilen erfasst:</p>
+    <ul>
+        <li>
+            <p>Die Zeichen zwischen &lt;time&gt; und &lt/time&gt; erscheinen im Browser. Hier kann man alles eintragen muss nicht mal ein Datum sein.</p>
+        </li>
+        <li>
+            <p>Das Attribut <em>datetime</em> enthält eine in der Spezification definiertes maschinenlesbare Variante. In der Reihenfolge Jahr(4 stellen), Monat und Tag mit jeweils 2 stellen.</p>
+            <p><code>&lt;time datetime="2015-04-01"&gt;1ster April 2015&lt;/time&gt;</code></p>
+        </li>
+    </ul>
+    <h3>Uhrzeit mit Time</h3>   
+    <p>Eine Uhrzeit wird im Attribute datetime immer im 24-Stunden-Format notiert.</p>
+    <p>Wenn Datum und Uhrzeit zusammen angegeben werden, wird die Uhrzeit mit einem T oder mit einer Leerstelle vom Datum getrennt.</p>
+    <p><code>&lt;time datetime="2015-04-01T13:00"&gt;1ster April 2015&lt;/time&gt;</code> <br> <code>&lt;time datetime="2015-04-01 13:00"&gt;1ster April 2015&lt;/time&gt;</code></p>
+    <p>Es ist auch möglich sich auf <mark>die Zeitzone</mark> auf die man sich bezieht mit anzugeben. Dazu gibt es verschiedene Möglichkeiten:</p>
+    <p>Der Buchstabe Z hinter der Uhrzeit. Was zuviel bedeutet wie UTC/GMT Zeit für alle andern Zeitzonen wird ein + oder - verwendet. Dabei werden die von GMT abweichenden Stunden jeweils mit 2 Stellen notiert.</p>
+    <p><code>&lt;time datetime="2015-04-01T13:00Z"&gt;1ster April 2015&lt;/time&gt;</code> <br> <code>&lt;time datetime="2015-04-01T13:00+01:00"&gt;1ster April 2015&lt;/time&gt;</code></p>
+    <h2>Formulare neue Attribute in HTML5.</h2>
+    <table>
+        <caption>Übersicht</caption>
+        <thead>
+            <td>Attribut</td>
+            <td>Erklärung</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>placeholder="wert"</code></td>
+                <td>
+                    <p>Werte werden als Platzhalter in das Feld geschrieben. Erhält das Feld den Fokus wird der Wert entfernt. Der Wert wird nicht mit übertragen wenn das Formular abgeschickt wird.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>required</code></td>
+                <td>
+                    <p>Das Feld das das Attribut required besitzt muss ausgefüllt werden sonst kommt es zum Fehler.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>autofocus</code></td>
+                <td>
+                    <p>autofocus platziert den Cursor nach dem Laden der Webseite in das entsprechende Feld, sodass der Benutzer sofort mit der Eingabe beginnen kann.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>HTML5 Formulare semantische Eingabefelder.</h2>
+    <p>Da diese neuen Felderarten die Bedeutung der Eingabe widerspiegeln, spricht man auch von <em>semantischen Formularfeldern</em></p>
+    <p><mark>Wenn ein älterer Browser die neuen semantischen Eingabefelder nicht kennt wandelt er diese in normale Textfelder um</mark></p>
+    <table>
+        <caption>Übersicht semantische Eingabefelder</caption>
+        <thead>
+            <td>Feldtype</td>
+            <td>Erklärung</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>&lt;input type="email ..."</code></td>
+                <td>
+                    <p>Sieht aus wie ein normales Textfeld aber es wird geprüft ob der String ein @ und . für die Länderkennung enthält.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;input type="tel ..."</code> oder <code>type="url"</code></td>
+                <td>
+                    <p>Bei url Feldern handelt es sich um eine absolute Addresse, daher müssen sie mit http:// beginnent.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;input type="search ..."</code></td>
+                <td>
+                    <p>Suchfelder auf Webseiten sind unter OS X Gestaltungsresistent. Falls man sie dennoch stylen will sollte man <br> <code>input[type="search"]{-webkit-appearance:textfield;}</code> probieren</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;input type="number ..."</code></td>
+                <td>
+                    <p>Das Feld nummer kann diverse Attribute enthalten:</p>
+                    <ul>
+                        <li>
+                            <p><code>min</code> für den kleinsten möglichen Wert.</p>
+                        </li>
+                        <li>
+                            <p><code>max</code> für den größten möglichen Wert.</p>
+                        </li>
+                    </ul>
+                    <p>BSP: <code>&lt;input type="number" id="tickets" name="tickets" <mark>min="1" max="4"</mark>&gt;</code></p>
+                    <p>Nicht vergessen Plz und Hausnummern sind keine Kandidaten für number, das sich die Nummerierung in anderen Ländern auch Buchstaben enthalten kann.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;input type="date ..."</code></td>
+                <td>
+                    <p>Die folgenden Eingabetypen für Datums- und Zeitangaben gibt es in HTML5</p>
+                    <ul>
+                        <li>
+                            <p><code>&lt;input type="date" &gt;</code> für allgemeine Datumsangaben</p>
+                        </li>
+                        <li>
+                            <p><code>&lt;input type="month" &gt;</code> Eingabe Monat</p>
+                        </li>
+                        <li>
+                            <p><code>&lt;input type="week" &gt;</code> Eingabe Kalenderwoche</p>
+                        </li>
+                        <li>
+                            <p><code>&lt;input type="time" &gt;</code> Eingabe der Uhrzeit</p>
+                        </li>
+                        <li>
+                            <p><code>&lt;input type="datetime" &gt;</code> für Datum und Uhrzeit mit Zeitzone</p>
+                        </li>
+                        <li>
+                            <p><code>&lt;input type="" &gt;</code>für Datum und Uhrzeit ohne Zeitzone</p>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Browser können mit verschiedenen mitteln den Benutzer bei der Eingabe von semantischen Feldern unterstützten.</p>
+    <h2>Kapitel 6 Responsive Graphiken, Audio und Video</h2>
+    <p>Workflow einfügen von Bildern</p>
+    <ul>
+        <li>
+            <p><strong>Bildausschnitt definieren</strong> Nur den Bildausschnitt verwenden den man wirklich benötigt alles andere abschneiden.</p>
+        </li>
+        <li>
+            <p><strong>Bildgröße optimieren</strong> Verkleinern des Bildes für alle geplanten Layouts auf einen brauchbaren Kompormiss(800x600) </p>
+        </li>
+        <li>
+            <p><strong>Dateigröße optimieren</strong> Komprimierung von des Bildes mit hilfe eines spezialtools wie, <a href="http://www.jpegmini.com">jpegmini</a></p>
+            <p>Andere tools zoom optimieren von Bildern:</p>
+            <ul>
+                <li><p><a href="http://tinypng.com">Tinypng</a> für PNGS</p></li>
+                <li><p><a href="http://kraken.io">kraken</a> unterstützt viele verschiedene Formate</p></li>
+            </ul>
+        </li>
+    </ul>
+    <h3>Flexible Bilder per CSS und max-width</h3>
+    <p>CSS zur Flexiblisierung vom Bildern.</p>
+    <pre>
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    </pre>
+    <p>So wird das Bild nie größer als sein Eltern Element.Die <em>height</em> regel wird auf auto gesetzt, damit das Bild nicht verzehrt.</p>
+    <h3>Hochauflösende Display CSS-Pixel vs Geräte-Pixel</h3>
+    <p>Hochauflösende Bildschirme haben eine so hohe Pixeldichte, das das menschliche Auge die einzelnen Bildpunkte nicht mehr unterscheiden kann.</p>
+    <p>Auf Traditionellen Bildschirmen ist ein Pixel ein Pixel. Wenn man in CSS eine Breite von 320px definiert hat(css-pixel), wurden auf dem Bildschirm auch tatsächlich 320px zur Darstellung genutzt(Geräte-pixel). Dies änderte sich jedoch mit immer höher auflösenden Bildschirmen.</p>
+    <p>Wenn ein CSS-Pixel nicht mehr einem Geräte-pixel entspricht vom <em><strong>device-pixel-ratio</strong></em> bei einem Ratio 2:1 benötigt man doppelte Anzahl Pixel für ein Bilde um die Grapfik klar und scharf darstellen zu können.</p>
+    <p>Wenn also bei einem Ratio 2:1 eine Graphik mit 400x300 angezeigt werden soll benötigt man ein Bild mit 800x600</p>
+    <p>Online Ressourcen für Pixeldichte:</p>
+    <ul>
+        <li>
+            <p><a href="http://devicepixelratio.com">devicepixelratio.com</a>, kann mit einem mobilen Device direkt angesurft werden.</p>
+        </li>
+        <li>
+            <p><a href="http://mydevice.io">mydevice.io</a>, kann mit einem mobilen Device direkt angesurft werden.</p>
+        </li>
+        <li>
+            <p><a href="http://screensiz.es">screensiz.es</a>, lange Liste von Devices</p>
+        </li>
+    </ul>
+    <h3>HTML und Responsive Graphiken</h3>
+    <p>bilder sind auf responsiven Webseiten eine ganz bensondere Herausforderung, denn Grafiken sind im Web für einen Großteil der übertragene Daten verantwortlich, und es gab bisher noch keine HTML-Lösung für responsive Grafiken.</p>
+    <p>In CSS gibt es Media Queries, mit dennen man je nach Browserumgebung unterschiedliche Layouts und Hintergrundbilder ausliefen kann. Für das <em>&lt;img&gt;</em> Tag in HTML eingebundene Graphiken hingegen gab es eine solche Möglichkeit bislang nicht, sodass grafikintensive responsive Webseiten oft eher langsam waren, weil sie für alle Browser dieselben großen Grafiken im Gepäck hatten.</p>
+    <h3>Vier Anwendungsfälle für responsive Grafiken.</h3>
+    <ol>
+        <li>
+            <p><strong>Unterschiedliche Pixeldichte</strong><br>Für normale und hochauflösende Bildschirme sollen jeweils passende Grafiken ausgeliefert werden. Auf nicht responsive Webseiten ist dies nicht das größte Problem.</p>
+            <p>Damit für Bildschirme mit unterschiedlcher pixeldichte ausgeliefert werden können wird das img-tag verwendet.</p>
+            <p>BSP: <code>&lt;img src="small.jpg" <mark>srcset="small.jpg x1 medium.jpg x2 large.jpg x3"</mark></code></p>
+            <p>Hierbei wird immer nur das gerade benötigte Bild heruntergeladen.</p>
+            <p>Bei nicht definierten ratios wählt der Browser das nächst größere Element</p>
+            <p>Die Viewportbreite spielt für diesen Anwendungsfall keine Rolle, es geht nur ums CSS-pixel zum Geräte-pixel ratio.</p>
+        </li>
+        <li>
+            <p><strong>Unterschiedliche Viewport-Breite</strong><br>Für unterschiedlich breite Viewports werden in HTML jeweils passende Grafiken definiert, ähnlich wie in CSS mit Media Queries für Hintergrundbilder</p>
+        </li>
+        <li>
+            <p><strong>Unterschiedeliche Bildmotive(Layout)</strong><br>Je nach Browserumgebungen sollen unterschiedliche Bildausschnitte oder Motive gezeigt werden.</p>
+        </li>
+        <li>
+            <p><strong>Unterschiedliche Dateiformate</strong><br>Es soll möglich sein, verschiedene Browsern unterschiedliche Dateiformate zu schicken.</p>
+        </li>
+    </ol>
 </body>
 </html>
