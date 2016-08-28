@@ -597,9 +597,36 @@
             <p>Hierbei wird immer nur das gerade benötigte Bild heruntergeladen.</p>
             <p>Bei nicht definierten ratios wählt der Browser das nächst größere Element</p>
             <p>Die Viewportbreite spielt für diesen Anwendungsfall keine Rolle, es geht nur ums CSS-pixel zum Geräte-pixel ratio.</p>
+            <p><mark>Die bessere Alternative ist jedoch die Verwendung von der Attribute sizes und srcset mit w(es dürfen nur w oder x in einem Tag verwendet werden), weil mit dieser Kombination die Pixeldichte bereits berücksichtigt wird.</mark> bei doppelter pixeldichte veranschlagt er einfach doppelt soviele pixel für das Bild. Ein Viewport(vw) mit 320px benötigt also eine Grafik mit 640px.</p>
         </li>
         <li>
             <p><strong>Unterschiedliche Viewport-Breite</strong><br>Für unterschiedlich breite Viewports werden in HTML jeweils passende Grafiken definiert, ähnlich wie in CSS mit Media Queries für Hintergrundbilder</p>
+            <p>Um einem Brwoser zu sagen, dass er je nach Viewport-Breite eine bestimmte Graphik verwenden soll wird dem srcset Attribute hinter dem image source ein w angegeben. <mark>Das w signalisiert wie breit das Bild(pixelbreite) ist</mark></p>
+            <p>BSP: <code>&lt;img src="small.jpg" <mark>srcset="small.jpg 400w medium.jpg 800w large.jpg 1600w"</mark></code></p>
+            <p>Bis zu einer Breite von 400px erscheint das small.jpg, von einer breite von 401 bis 800px erscheint das medium.jpg und schlussendlich Ab 801px erscheint das large.jpg</p>
+            <h4>Mit dem Attribute sizes und vw die Anzeigebreite des Bildes bestimmen.</h4>
+            <p>Der Wert von <em>sizes</em> bildet die Grundlage für die Berechnung der geeigneten Grafik. <mark>vw ist die Maßeinheit viewport-width</mark> 100vw bedeutet, das eine Graphik den kompletten Viewport ausfüllen soll.</p>
+            <p>Als Faust geregel gilt:</p>
+            <ul>
+                <li>
+                    <p>Wenn im Attribut <em>scrset</em> ein w-Wert auftaucht, dann sollte auch ein Attribut sizes vorhanden sein.</p>
+                </li>
+                <li>
+                    <p>Falls keins vorhanden ist, fügt der Browser den Standardwert <code>sizes="100vw"</code> ein.</p>
+                </li>
+            </ul>
+            <p>BSP: <code>&lt;img src="small.jpg" srcset="small.jpg 400w medium.jpg 800w large.jpg 1600w"<mark> sizes="100vw"</mark></code></p>
+            <h4>Das Attribute <code>sizes</code> kann die Viewport-width abfragen</h4>
+            <p>BSP: <code>&lt;img src="small.jpg" srcset="small.jpg 400w medium.jpg 800w large.jpg 1600w"<mark> sizes="(min-width:600px) 50vw, 100vw"</mark></code></p>
+            <p>Der Beispielcode bedeutet:</p>
+            <ul>
+                <li>
+                    <p>Ist der Viewport mindestens 600px breit <code>(min-width:600px)</code>, dann soll das Bild halb so breit wie der Viewport dargestellt werden(50vw)</p>
+                </li>
+                <li>
+                    <p>Ist der Viewport kleiner, soll es den gesamten Viewport einnehmen(vw100).</p>
+                </li>
+            </ul>
         </li>
         <li>
             <p><strong>Unterschiedeliche Bildmotive(Layout)</strong><br>Je nach Browserumgebungen sollen unterschiedliche Bildausschnitte oder Motive gezeigt werden.</p>
