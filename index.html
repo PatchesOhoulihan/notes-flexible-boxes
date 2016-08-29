@@ -630,10 +630,45 @@
         </li>
         <li>
             <p><strong>Unterschiedeliche Bildmotive(Layout)</strong><br>Je nach Browserumgebungen sollen unterschiedliche Bildausschnitte oder Motive gezeigt werden.</p>
+            <p>Benötigt das <code>picture tag</code> und den <code>source</code> Tag.</p>
+            <p>Im gegensatz zu den srcset und sizes Attribute alles sich mit dieser variante auch verschiedene Bilder übermitteln.(Ja Diggi, gehacked wäre das auch mit dem anderen Attributen gegangen.)</p>
+            <p>Wichtig dabei ist zubeachten, das der Browser hierbei von oben nach unten vorgeht. <mark>Das erste Bild was passt wird ausgewählt.</mark></p>
+            <pre>
+                &lt;picture&gt;
+                    &lt;source media="" srcset="" sizes&gt;&lt;/source&gt;
+                    &lt;source media="" srcset="" sizes&gt;&lt;/source&gt;
+                    &lt;img src="" alt=""&gt;
+                &lt;/picture&gt;
+            </pre>
+            <p>Das &lt;picture&gt; Element hat keine eigenen Attribute und legt sich lediglich als Wrapper um die Elemente</p>
+            <p>Das &lt;source&gt; Element erledigt die Auswahl der Graphiken es kann diese Attribute besitzen:</p>
+            <ul>
+                <li>
+                    <p><code>srcset</code>(erforderlich) Stellt eine Liste der Kandidaten zur Verfügung, für die am besten geeignetes Bild.</p>
+                </li>
+                <li>
+                    <p><code>sizes</code>(optional) Dient zur Beschreibung der gewünschten Darstellungsbreite.</p>
+                </li>
+                <li>
+                    <p><code>media</code>(optional) Enthält eine gültige Media Query, wie in CSS</p>
+                </li>
+            </ul>
+            <p>Der klassische Workflow des Webdesigns kennt <mark>die drei Stufen <em>Gestalten, Nachbauen</em> und <em>Anschauen</em></mark></p>
+             <p>BSP Verschiedene Bilder je nach Breite des Viewports: <pre>
+                &lt;picture&gt;
+                    &lt;source media="(min-width:600px)" srcset="workflow-waagerecht.png 1x, workflow-waagerecht.png 2x"&gt;
+                    &lt;source srcset="workflow-senkrecht.png 1x, workflow-senkrecht-large.png 2x"&gt;
+                    &lt;img src="workflow-fallback.png" alt="Klassischer Workflow"&gt;
+                &lt;/picture&gt;
+            </pre></p>
         </li>
         <li>
             <p><strong>Unterschiedliche Dateiformate</strong><br>Es soll möglich sein, verschiedene Browsern unterschiedliche Dateiformate zu schicken.</p>
+            <p><mark>Hier für bekommt das <em>source</em> Element ein Attribut <em>type</em></mark> womit der Mime-Typ der Datei angeben wird</p>
+            <p><code> &lt;source media="(min-width:600px)" srcset="workflow-waagerecht.webp 1x, workflow-waagerecht.webp 2x" <mark>type="image/webp"</mark>&gt;</code></p>
         </li>
     </ol>
+    <h4><code>&lt;picture&gt; vs srcset w</code></h4>
+    p
 </body>
 </html>
