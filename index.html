@@ -669,6 +669,111 @@
         </li>
     </ol>
     <h4><code>&lt;picture&gt; vs srcset w</code></h4>
-    p
+    <p>Bei <em>img</em> mit srcset w gibt der Auter de Webseite dem Browser,lediglich Hinweise, die Entscheidung wird aber im end effekt dem Browser überlassen. denn dieser hat alle benötigten informationen um das Richtig Bild auszuwählen. Bei <em>picture</em> hingegen hat der Browser keinen Spielraum durch die mediaqueries wird dem Browser genau vorgeschrieben welches Bild er verwenden soll.</p>
+    <p>Für bestimmte Art Direction und bestimmte Graphik Formate ist das in Ordnung jedoch sollte im allgemeinem die <em>srcset w img</em> Variante bevorzugt werden.</p>
+    <h3>Nützliche Quellen über responsive Images.</h3>
+    <ul>
+        <li>
+            <p><a href="http://dev.opera.com/articles/native-responsive-images">Native Responsive Images</a></p>
+        </li>
+        <li>
+            <p><a href="http://dev.opera.com/articles/responsive-images">Use Cases and Code Snippets</a></p>
+        </li>
+        <li>
+            <p><a href="http://webkrauts.de/artikel/2014/der-neue-standard-fuer-responsive-bilder">Artikel bei Webkrauts</a></p>
+        </li>
+    </ul>
+    <h2>HTML5 und Sound</h2>
+    <p>In HTML5 ermöglichen es die Elemente <em>audio</em> und <em>video</em> es den Browsern, Audio und Videodateien direkt und ohne Plugin abzuspielen. Leider sind sich die Browserhersteller nicht einige welche Formate hierfür verwendet werden sollen.</p>
+    <p>Um einen möglichst großen Benutzerkreis abdecken zukönnen sollten folgende Formate für den jeweiligen Browser vorliegen:</p>
+    <ul>
+        <li>
+            <p><strong>MP3</strong> für Chrome, Safari, IE9+, iOS und Android 2.3+</p>
+        </li>
+        <li>
+            <p><strong>OGG Vorbis</strong> für Firefox, Chrome und Opera</p>
+        </li>
+    </ul>
+    <p>BSP:<br> <pre>
+        &lt;audio id="audio" controls preload="metadata"&gt;
+            &lt;source src="url-to-audio.mp3" type="audio/mp3">&lt;/source&gt;
+            &lt;source src="url-to-audio.ogg" type="audio/ogg">&lt;/source&gt;
+            &lt;a href="url-to-audio.mp3">Download MP3 Audio&lt;/a&gt;
+        &lt;/audio&gt;
+    </pre></p>
+    <h4>Erklärung</h4>
+    <p>Das <em>Audio</em>Tag wird vom Browser von oben nach unten abgearbeitet. <mark>Die erste Datei die er interpretieren kann wird abgespielt alle andern werden ignoriert.</mark> <br> <mark>Daher sollten die Dateien IMMER in der <strong>Reihenfolge 1.MP3 2.OGG 3.Download-link</strong> vorliegen.</mark></p>
+    <p>Der <em>audio</em> Tag besitzt 2 Attribute:</p>
+    <ul>
+        <li>
+            <p><strong>controls</strong>: lädt die Bedienelemente für den Browser eigenen Player.</p>
+        </li>
+        <li>
+            <p><strong>preload</strong>: Bestimmt was der Browser laden soll, BEVOR der Benutzer auf den Play Button drückt. Es gibt foldenden Werte für das Attribute</p>
+            <ul>
+                <li>
+                    <p><code>metadata:</code> lädt metainformationen herunter wie die songlänge, jedoch nicht den Song selbst</p>
+                </li>
+                <li>
+                    <p><code>none:</code> es wird nicht im vorraus geladen</p>
+                </li>
+                <li>
+                    <p><code>auto:</code> hierbei entscheidet der Browser was geladen wird. Die meisten beginnen mit dem Download der Datei.</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>Das source Tag besitzt 2 Attribute:</p>
+    <ul>
+        <li>
+            <p><code>src:</code> gibt den Pfad zur Datei an.</p>
+        </li>
+        <li>
+            <p><code>type:</code> definiert mime-type der Audiodatei.</p>
+        </li>
+    </ul>
+    <h2>HTML5 und Video</h2>
+    <p>BSP:<br> <pre>
+        &lt;video id="video" controls poster="bild.jpg" preload="metadata"&gt;
+            &lt;source src="url-to-video.mp4" type="video/mp4">&lt;/source&gt;
+            &lt;source src="url-to-video.webm" type="video/webm">&lt;/source&gt;
+            &lt;a href="url-to-video.mp4">Download video&lt;/a&gt;
+        &lt;/video&gt;
+    </pre></p>
+    <p><mark>Für Safri muss das erste <em>source</em> ein mp4 file sein sonst werden alle anderen ignoriert.</mark></p>
+    <h4>Erklärung</h4>
+    <p>Das <em>Video</em>Tag wird vom Browser von oben nach unten abgearbeitet. <mark>Die erste Datei die er interpretieren kann wird abgespielt alle andern werden ignoriert.</mark> <br> <mark>Daher sollten die Dateien IMMER in der <strong>Reihenfolge 1.MP3 2.OGG 3.Download-link</strong> vorliegen.</mark></p>
+    <p>Der <em>video</em> Tag besitzt 3 Attribute:</p>
+    <ul>
+        <li>
+            <p><strong>controls</strong>: lädt die Bedienelemente für den Browser eigenen Player.</p>
+        </li>
+        <li>
+            <p><strong>poster="bild.jpg"</strong>: ermöglicht es als Startbildschirm bevor das Video abgspielt wird ein Bild zu setzen.</p>
+        </li>
+        <li>
+            <p><strong>preload</strong>: Bestimmt was der Browser laden soll, BEVOR der Benutzer auf den Play Button drückt. Es gibt foldenden Werte für das Attribute</p>
+            <ul>
+                <li>
+                    <p><code>metadata:</code> lädt metainformationen herunter wie die songlänge, jedoch nicht den Song selbst</p>
+                </li>
+                <li>
+                    <p><code>none:</code> es wird nicht im vorraus geladen</p>
+                </li>
+                <li>
+                    <p><code>auto:</code> hierbei entscheidet der Browser was geladen wird. Die meisten beginnen mit dem Download der Datei.</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>Das source Tag besitzt 2 Attribute:</p>
+    <ul>
+        <li>
+            <p><code>src:</code> gibt den Pfad zur Datei an.</p>
+        </li>
+        <li>
+            <p><code>type:</code> definiert mime-type der Audiodatei.</p>
+        </li>
+    </ul>
 </body>
 </html>
