@@ -174,7 +174,7 @@
     </ul>
     <h3>ARIA Landmark Roles in HTML5</h3>
     <p>ARIA ist die Abkürzung für <em>Accessible Rich Internet Applications</em> und Teil einer Technischen Spezifikation der <em>Web Accessibility Initiative</em>(WAI), die sich um die Zugänglichkeit des Webs sorgen.</p>
-    <p><mark>Dazu werden die HTML-Elementen um das <em>Attribute role=</em> erweitert, das einen fest definierten Wert erhält.</mark></p>
+    <p><mark>Dazu werden die HTML-Elementen um das <em>Attribute role=</em> erweitert, das einen fest definierten Wert erhält.</mark> weitere Informationen <a href="http://w3.org/WAI/PF/aria/states_and_properties#aria-labelledby"></a></p>
     <table>
         <caption></caption>
         <th>
@@ -306,6 +306,12 @@
             </td>
         </tr>
     </table>
+    <p>Die Aria Role <em>aria-labelledby="content"</em> stellt eine Verbindung zwischen zwei Tags her, ähnlich wie das Attribut <em>for</em> in Formularen die Beschriftung per <em>label</em> und das dazugehörige Formularfeld verbindet.</p>
+    <p>BSP: <pre>
+        &lt;main role="main" <mark>aria-labeledby="content"</mark>&gt;
+             &lt;section <mark>id="content"</mark>&gt; &lt;/section&gt;
+        &lt;/main&gt;
+    </pre></p>
     <p>Links zu WAI-ARIA Attributs</p>
     <p>Steve Faulkner, einer der Editoren der W3C-HTML-5 spezifikation schreibt in <a href="http://blog.paciellogroup.com/2013/02/using-wai-aria-landmarks-2013"></a></p>
     <p>W3C Standard Einführung <a href="http://w3.org/WAI/intro/aria"></a></p>
