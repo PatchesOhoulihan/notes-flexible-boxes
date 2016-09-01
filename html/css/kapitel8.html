@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Vendor CSS -->
-  <link href="css/normalize.css" rel="stylesheet" media="all">
+  <link href="../../bower_components/normalize-css/normalize.css" rel="stylesheet" media="all">
   <link href="css/master.css" rel="stylesheet" media="all">
   <!--[if lt IE 9]>
     <script src="js/html5shiv-printshiv.js" media="all"></script>
@@ -47,13 +47,61 @@
           </li>
       </ul>
       <h4>Das Bookmarklet</h4>
-      <p>Kann in allen Browsern verwendet werden. Ein Bookmarklet ist ein kleines Javascript, das man als Lesezeichen im Browser speichern kann. <a href="http://lab.maltewassermann.com/viewport-resizer"></a></p>
+      <p>Kann in allen Browsern verwendet werden. Ein Bookmarklet ist ein kleines Javascript, das man als Lesezeichen im Browser speichern kann. <a href="http://lab.maltewassermann.com/viewport-resizer">Viewport-resizer</a></p>
       <p>Ähnliches tool von <a href="http://bradfrost.com/demo/ish/">Brad Frost</a></p>
     </article>
-    <article class="a1">
+    <article class="a2">
         <header>
-            <h3></h3>
+            <h3>CSS3-Module und Browser-Präfixe</h3>
+            <p>Die Entwicklung begann Mitte der 90er-Jahre, erste Version CSS Level 1 Dezember 1996, vers. 2 1998, Überarbeitung August 2002. <mark> Aktuelle Spezifikation CSS3 Juni 2011 </mark></p>
         </header>
+    </article>
+    <article class="a3">
+      <header>
+        <h3>Browser Präfixe</h3>
+        <p>Häufig ist die Spezifikation, einzelner CSS features noch nicht fertiggestellt, während es bereits Implementierungen für verschiedene Browser gibt. Diese unterscheiden sich zumeist erheblich. BSP: Die meisten Browser können Farbverläufe darstellen, jedoch ist die Syntax dafür sehr unterschiedlich. Daher sind die Browserherrsteller dazu übergegangen experimentelle Funktionen mit einem Browserpräfix zu maskieren.</p>
+      </header>
+      <table>
+          <thead>
+            <th>Browser</th>
+            <th>Browser-Präfix</th>
+            <th>Layout Engine</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Apple Safari</td>
+              <td>-webkit-</td>
+              <td>Webkit</td>
+            </tr>
+            <tr>
+              <td>Google Chrome</td>
+              <td>-Webkit-</td>
+              <td>Blink</td>
+            </tr>
+            <tr>
+              <td>Mozilla Firefox</td>
+              <td>-moz-</td>
+              <td>Gecko</td>
+            </tr>
+            <tr>
+              <td>Opera</td>
+              <td>-o-</td>
+              <td>Blink</td>
+            </tr>
+            <tr>
+              <td>Internet Explorer</td>
+              <td>-ms-</td>
+              <td>Trident</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><a href="http://css-tricks.com/how-to-deal-with-vendor-prefixes">Beitrag zum Thema präfixes</a></p>
+    </article>
+    <article>
+      <header>
+        <h3>normalize.css</h3>
+      </header>
+        <p>Alle Browser besitzen ein eingebautes Stylesheet und benutzen verschiedene Voreinstellungen. Zur vereinheitlichung der verschiedenen Browser haben viele Entwickler diese durch einen Hardreset überschrieben. Dies ist jedoch zu umständlich dafür sollte man lieber die normalize.css verwenden</p>
     </article>
   </section>
 </main>
@@ -63,8 +111,21 @@
   <section id="lesetipps">
     <h3>Lesetipps</h3>
     <ul>
-      <li><a href="#">Responsives Webdesign</a></li>
-      <li><a href="#">Was ist »<span lang="en">mobile</span>«?</a></li>
+      <li>
+        <p>Verschiedene Bildschirm Formen und Auflösungen testen</p>
+        <p>Brandon Frost: <a href="http://bradfrost.com/demo/ish/">ish</p>
+        <p>Malte Wassermann: <a href="http://lab.maltewassermann.com/viewport-resizer">Viewport-resizer</a></p>
+      </li>
+      <li>
+        <p>CSS Standards</p>
+        <p><a href="http://w3.org/TR/CSS21">CSS Spezifaktion</a></p>
+        <p><a href="http://w3.org/Style/CSS/current-work">Aktueller Überblick</a></p>
+      </li>
+      <li>
+        <p>Browser prefixes</p>
+        <p><a href="http://css-tricks.com/how-to-deal-with-vendor-prefixes">Beitrag zum Thema Präfixes</a></p>
+        <p><a href="http://expressprefixr.herokuapp.com/">Prefixes automatisch erstellen</a></p>
+      </li>
       <li><a href="#">Das Interweb</a></li>
     </ul>
   </section>

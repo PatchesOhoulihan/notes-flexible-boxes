@@ -1,0 +1,19 @@
+{
+  "name": "notes-responsive-webdesign",
+  "homepage": "https://github.com/PatchesOhoulihan/notes-flexible-boxes",
+  "description": "teststuff, template, css, responsive-design, german",
+  "main": "index.html",
+  "keywords": [
+    "web-development",
+    "html",
+    "css"
+  ],
+  "authors": [
+    "schmalte"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.2.0"
+  }
+}
